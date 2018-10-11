@@ -522,6 +522,8 @@ button {
   color: #222;
   padding: 10px 20px;
   background: powderblue;
+  border: none;
+  border-radius: 5px;
 }
 
 .clear{

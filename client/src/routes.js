@@ -4,6 +4,9 @@ import React from "react";
 import { Redirect, Route, Router } from "react-router-dom";
 import App from "./App";
 import Home from "./Home/Home";
+import ClubInfo from "./Home/ClubInfo";
+import Calendar from "./Home/Calendar";
+import Contact from "./Home/Contact";
 import Profile from "./Profile/Profile";
 import Ping from "./Ping/Ping";
 import Admin from "./Admin/Admin";
@@ -40,6 +43,27 @@ export const makeMainRoutes = props => {
             path="/home"
             render={({ location, props }) => (
               <Home auth={auth} {...props} location={location} />
+            )}
+          />
+
+          <Route
+            path="/clubinfo"
+            render={({ location, props }) => (
+              <ClubInfo auth={auth} {...props} location={location} />
+            )}
+          />
+
+          <Route
+            path="/contact"
+            render={({ location, props }) => (
+              <Contact auth={auth} {...props} location={location} />
+            )}
+          />
+
+          <Route
+            path="/calendar"
+            render={({ location, props }) => (
+              <Calendar auth={auth} {...props} location={location} />
             )}
           />
 

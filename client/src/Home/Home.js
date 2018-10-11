@@ -60,26 +60,26 @@ class Home extends Component {
           </Button>
 
           <div className="rotate-left">
-            <Button className="button-left">
+            <Link to="/clubinfo"><Button className="button-left">
               <button type="button" className="block">
                 Club Information 
               </button>
-            </Button>
+            </Button></Link>
           </div>
 
           <div className="rotate-right">
-            <Button className="button-right">
+            <Link to="/contact"><Button className="button-right">
               <button type="button" className="block">
                 Contact - 
               </button>
-            </Button>
+            </Button></Link>
           </div>
 
-          <Button className="button-bottom">
+          <Link to="/calendar"><Button className="button-bottom">
             <button type="button" className="block">
               Club Calendar - 
             </button>
-          </Button>
+          </Button></Link>
         </ButtonContainer>
       </div>
     );
