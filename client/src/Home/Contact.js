@@ -1,28 +1,57 @@
-import React, { Fragment } from "react";
-import posed from "react-pose";
-// import mapImage from '../images/mapImage.png';
+import React, { Component } from "react";
+import "../Profile/Profile.css";
 
-// const Container = posed.div({
-//   enter: { staggerChildren: 500 }
-// });
+import ReactDom from "react-dom";
+import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
+import posed from 'react-pose';
 
-// const P = posed.p({
-//   enter: { x: 0, opacity: 1 }, // renders component on Home. Comes from right.
-//   exit: { x: 50, opacity: 0 }
-// });
+const ButtonContainer = posed.div({
+  open: {
+    x: '0%',
+    delayChildren: 200,
+    staggerChildren: 50
+  },
+  closed: { x: '-100%', delay: 300 }
+});
 
-// export default  () => {
-//   <Container>
-//     <h2>Contact</h2>
-//     <P>Phone: 210-777-7777</P>
-//     <P>Address: 1111 Bandera, San Antonio TX 78254</P>
-//     <P>Email: steve@zenithservices.net</P>
-//     <P>Image: insert image here</P>
-//   </Container>;
-// };
+const Button = posed.div({
+  open: { y: 0, opacity: 1 },
+  closed: { y: 20, opacity: 0 }
+});
 
-export const Contact = () => {
-  return (
-    <div>Contact Page</div>
-  )
+class Contact extends Component {
+  state = { isOpen: false };
+  
+  componentDidMount() {
+    setTimeout(this.toggle, 1000);
+  }
+
+  toggle = () => this.setState({ isOpen: !this.state.isOpen });
+
+  render() {
+    const { isOpen } = this.state;
+    return (
+      <div id="container">
+        <ButtonContainer id="content-container" pose={isOpen ? 'open' : 'closed'}>
+          <Link to="/home"><Button className="button-top">
+            <button type="button" className="block">
+              Home - 
+            </button>
+          </Button></Link>
+
+          <Button className="contact-container">
+            <h3 className="title">Contact Us</h3>
+            <form className = "contactform">
+              <input type="text" placeholder="Email Address" />
+              <textarea placeholder="Please leave a Message" />
+              <input type="submit" value="Send Message" />
+              <div className="clear" />
+            </form>
+          </Button>
+        </ButtonContainer>
+      </div>
+    );
+  }
 }
+
+export default Contact;

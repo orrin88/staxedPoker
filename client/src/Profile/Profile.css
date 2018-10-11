@@ -353,6 +353,7 @@ section::before {
   width: 100vw;
   position: absolute;
   top: 0;
+  left: 0;
 }
 
 .button-bottom {
@@ -369,6 +370,7 @@ section::before {
   width: 100vw;
   position: absolute;
   bottom: 50px;
+  left: 0;
 }
 
 .button-left {
@@ -481,6 +483,49 @@ div h4 {
 
 button {
   margin: 2px;
+}
+
+.title{
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+.calendar-container{
+  text-align: center;
+}
+
+.calendar-container img{
+  width: 400px;
+  max-width: 100%;
+  height: auto;
+}
+
+.contactform{
+  margin-top: 20px;
+}
+
+.contactform input[type='text'], .contactform textarea{
+  font-size: 15px;
+  width: 100%;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  padding: 10px;
+  border: none;
+}
+
+.contactform textarea{
+  height: 200px;
+}
+
+.contactform input[type='submit']{
+  float: right;
+  color: #222;
+  padding: 10px 20px;
+  background: powderblue;
+}
+
+.clear{
+  clear: both;
 }
 
 /* Profile */
