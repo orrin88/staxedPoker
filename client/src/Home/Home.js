@@ -16,6 +16,20 @@ import posed from 'react-pose';
 //   exit: { opacity: 0 }
 // });
 
+const Container = posed.div({
+  open: {
+    backgroundPosition: '50% center',
+    delayChildren: 500,
+    staggerChildren: 50
+  },
+  
+  closed: { 
+    backgroundPosition: function(props) {
+      return props.position + ' center';
+    }
+  }
+});
+
 const ButtonContainer = posed.div({
   open: {
     x: '0%',
@@ -41,8 +55,9 @@ class Home extends Component {
 
   render(props) {
     const { isOpen } = this.state;
+
     return (
-      <div id="container">
+      <Container id="container" className="background-container" pose={isOpen ? 'open' : 'closed'} position={this.props.location.state === undefined? '100%': this.props.location.state}>
         <ButtonContainer id="content-container" pose={isOpen ? 'open' : 'closed'}>
           <Button className="button-top">
             <button type="button" className="block">
@@ -81,7 +96,7 @@ class Home extends Component {
             </button>
           </Button></Link>
         </ButtonContainer>
-      </div>
+      </Container>
     );
   }
 }

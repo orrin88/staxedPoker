@@ -47,6 +47,13 @@ export const makeMainRoutes = props => {
           />
 
           <Route
+            path="/profile"
+            render={({ location, props }) => (
+              <Profile auth={auth} {...props} location={location} />
+            )}
+          />
+
+          <Route
             path="/clubinfo"
             render={({ location, props }) => (
               <ClubInfo auth={auth} {...props} location={location} />

@@ -1,11 +1,11 @@
-// const bcrypt = require('bcrypt');
+const bcrypt = require('bcrypt');
 
 exports.seed = function(knex, Promise) {
   return knex('users').insert([
     {
       id: 1,
       email: "nathan.keolasy@gmail.com",
-      // hashed_pw: bcrypt.hashSync('nathan', 10);
+      // hashed_pw: bcrypt.hashSync('nathan', 10),
       name: "Nathan Keolasy",
       phone: "210-777-7777",
       balanceHours: 10,

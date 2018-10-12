@@ -1,9 +1,18 @@
 import React, { Component } from "react";
 import "../Profile/Profile.css";
-
+import contentImg from '../images/clubInfo.png';
 import ReactDom from "react-dom";
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 import posed from 'react-pose';
+
+const Container = posed.div({
+  open: {
+    backgroundPosition: '0% center',
+    delayChildren: 500,
+    staggerChildren: 0
+  },
+  closed: { backgroundPosition: '50% center', delay: 0 }
+});
 
 const ButtonContainer = posed.div({
   open: {
@@ -31,25 +40,19 @@ class ClubInfo extends Component {
   render() {
     const { isOpen } = this.state;
     return (
-      <div id="container">
+      <Container id="clubinfo-container" className="background-container" pose={isOpen ? 'open' : 'closed'}>
         <ButtonContainer id="content-container" pose={isOpen ? 'open' : 'closed'}>
-          <Link to="/home"><Button className="button-top">
+          <Link to={{ pathname: '/home', state: { position: '0%'} }}><Button className="button-top">
             <button type="button" className="block">
               Home - 
             </button>
           </Button></Link>
 
           <Button className="info-container">
-            <h3 className="title">About Us</h3>
-            <h3>San Antonio's Coolest Private Club</h3>
-            <h1>RIVER CITY</h1>
-            <br />
-            <h2>CARD ROOM</h2>
-            <h5>Open 7 days a week for good times!</h5>
-            <h4>Poker • Arcade & Console Games • Chess</h4>
+            <img src={contentImg} />
           </Button>
         </ButtonContainer>
-      </div>
+      </Container>
     );
   }
 }

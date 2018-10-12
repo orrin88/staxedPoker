@@ -5,6 +5,15 @@ import ReactDom from "react-dom";
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 import posed from 'react-pose';
 
+const Container = posed.div({
+  open: {
+    backgroundPosition: '100% center',
+    delayChildren: 200,
+    staggerChildren: 50
+  },
+  closed: { backgroundPosition: '50% center', delay: 300 }
+});
+
 const ButtonContainer = posed.div({
   open: {
     x: '0%',
@@ -31,9 +40,9 @@ class Contact extends Component {
   render() {
     const { isOpen } = this.state;
     return (
-      <div id="container">
+      <Container id="contact-container" className="background-container" pose={isOpen ? 'open' : 'closed'}>
         <ButtonContainer id="content-container" pose={isOpen ? 'open' : 'closed'}>
-          <Link to="/home"><Button className="button-top">
+          <Link to={{ pathname: '/home', state: { position: '100%'} }}><Button className="button-top">
             <button type="button" className="block">
               Home - 
             </button>
@@ -49,7 +58,7 @@ class Contact extends Component {
             </form>
           </Button>
         </ButtonContainer>
-      </div>
+      </Container>
     );
   }
 }

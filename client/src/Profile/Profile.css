@@ -43,14 +43,8 @@ text {
   width: 100%;
 } */
 
-#showcase {
-  background-image: linear-gradient(
-      rgba(20, 20, 20, 0.65),
-      rgba(20, 20, 20, 0.65)
-    ),
-    url(../images/chips3-blur.png);
-  background-size: cover;
-  background-attachment: fixed;
+.background-container {
+  background-image: url(../images/ace-cards-casino-279009.jpg);
   background-repeat: no-repeat;
   background-position: center center;
   /* background-position: center; */
@@ -60,12 +54,25 @@ text {
   flex-direction: column;
   position: absolute;
   overflow-x: hidden;
-  top: 0;
+  top: 50px;
 }
 
 #showcase h1 {
   font-size: 50px;
   font-family: "Rubik Mono One", sans-serif;
+}
+
+#clubinfo-container{
+  /* background-image: url(../images/clubInfo.png);
+  background-size: cover;
+  margin-top: 50px;
+  position: relative;
+  background-position: center center; */
+  background-position: 0 center;
+}
+
+#contact-container{
+  background-position: right center;
 }
 
 /* 
@@ -98,7 +105,6 @@ section::before {
 
 #container{
   height: 100vh;
-  margin-top: 50px;
 }
 
 .container {
@@ -412,6 +418,7 @@ section::before {
   margin: auto;
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
 
 /* .block-side {
