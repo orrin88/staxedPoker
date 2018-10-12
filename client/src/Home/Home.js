@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import "../Profile/Profile.css";
-
+import logo from '../images/png-med-white.png';
 import ReactDom from "react-dom";
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 import posed from 'react-pose';
@@ -61,15 +61,16 @@ class Home extends Component {
         <ButtonContainer id="content-container" pose={isOpen ? 'open' : 'closed'}>
           <Button className="button-top">
             <button type="button" className="block">
-              Poker News - 
+              Poker News
             </button>
           </Button>
 
           <Button className="container-center">
-            <h3>San Antonio's Coolest Private Club</h3>
+            {/* <h3>San Antonio's Coolest Private Club</h3>
             <h1>RIVER CITY</h1>
             <br />
-            <h2>CARD ROOM</h2>
+            <h2>CARD ROOM</h2> */}
+            <img src = {logo} className = "logo" />
             <h5>Open 7 days a week for good times!</h5>
             <h4>Poker • Arcade & Console Games • Chess</h4>
           </Button>
@@ -85,14 +86,14 @@ class Home extends Component {
           <div className="rotate-right">
             <Link to="/contact"><Button className="button-right">
               <button type="button" className="block">
-                Contact - 
+                Contact
               </button>
             </Button></Link>
           </div>
 
           <Link to="/calendar"><Button className="button-bottom">
             <button type="button" className="block">
-              Club Calendar - 
+              Club Calendar
             </button>
           </Button></Link>
         </ButtonContainer>

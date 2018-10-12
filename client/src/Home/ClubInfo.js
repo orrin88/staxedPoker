@@ -44,7 +44,7 @@ class ClubInfo extends Component {
         <ButtonContainer id="content-container" pose={isOpen ? 'open' : 'closed'}>
           <Link to={{ pathname: '/home', state: { position: '0%'} }}><Button className="button-top">
             <button type="button" className="block">
-              Home - 
+              Home
             </button>
           </Button></Link>
 

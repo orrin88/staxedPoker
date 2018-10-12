@@ -44,7 +44,7 @@ class Contact extends Component {
         <ButtonContainer id="content-container" pose={isOpen ? 'open' : 'closed'}>
           <Link to={{ pathname: '/home', state: { position: '100%'} }}><Button className="button-top">
             <button type="button" className="block">
-              Home - 
+              Home
             </button>
           </Button></Link>
 
