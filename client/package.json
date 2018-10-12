@@ -28,6 +28,7 @@
     "react-bootstrap": "^0.32.3",
     "react-dom": "^16.1.1",
     "react-router-dom": "^4.2.2",
+    "redux-saga": "^0.16.2",
     "yarn-install": "^1.0.0"
   },
   "scripts": {

@@ -37,8 +37,17 @@ router.get('/', function(req, res) {
 	.from('users')
 	.orderBy('id')
 	.then(function(data) {
+		console.log(data);
 		res.send(data)
 	})
+})
+
+router.get('/email/:email', function(req, res) {
+	db('users')
+		.where({email: req.params.email })
+		.then(function(data) {
+			res.send(data)
+		})
 })
 
 // INSERT INTO 'tableName"(col1, col2) VALUES (col1_value, col2_value);
@@ -48,6 +57,7 @@ router.post('/', (req, res) => {
 	.returning('*')
 	.into('users')
 	.then((data) => {
+		console.log(data);
 		res.send(data)
 	})
 })
@@ -69,6 +79,7 @@ router.get('/:id', (req, res) =>
 			res.send(data)
 		})
 )
+
 
 // PATCH only modifies the one we submit in the body.
 router.patch('/:id', function(req, res) {

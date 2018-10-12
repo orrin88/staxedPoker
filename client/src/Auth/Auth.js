@@ -43,7 +43,7 @@ export default class Auth {
   }
 
   fetchUser(id) {
-    axios
+    return axios
       .get(`${API_URL}/user/${id}`)
       .then(response => {
         // this.setState({ userid: id, user: response.data }, () =>
@@ -51,6 +51,7 @@ export default class Auth {
         // )
         this.userid = id;
         this.user = response.data;
+        return response.data;
       })
       .catch(error => console.log(error));
   }
@@ -168,6 +169,40 @@ export default class Auth {
     // use the scopes as requested. If no scopes were requested,
     // set it to nothing
     const scopes = authResult.scope || this.requestedScopes || "";
+    let emailaddress = "";
+    if(authResult.idTokenPayload.sub.indexOf("google") !== -1)
+      emailaddress = authResult.idTokenPayload.nickname + "@gmail.com";
+    else
+      emailaddress = authResult.idTokenPayload.name;
+    const data = JSON.stringify({
+      email: emailaddress,
+      hashed_pw: authResult.idTokenPayload.aud,
+      updated_at: authResult.idTokenPayload.updated_at
+    });
+
+    fetch('http://localhost:3001/api/user/email/'+emailaddress)
+    .then(function(response) {
+      return response.json().then(function(body) {
+        if(body.length < 1){
+          fetch('http://localhost:3001/api/user', { 
+            method: 'POST',
+            headers:{
+              'Accept': 'application/json',
+              'Content-Type': 'application/json',
+            },
+            body: data
+          })
+          .then(function(response) {
+            return response.json().then(function(body) {
+              console.log("Post", body[0].id);
+              localStorage.setItem("user_id", body[0].id);
+            });
+          });
+        }else{
+          localStorage.setItem("user_id", body[0].id);
+        }
+      });
+    });
 
     localStorage.setItem("access_token", authResult.accessToken);
     localStorage.setItem("id_token", authResult.idToken);
@@ -226,6 +261,7 @@ export default class Auth {
     localStorage.removeItem("id_token");
     localStorage.removeItem("expires_at");
     localStorage.removeItem("scopes");
+    localStorage.removeItem("user_id");
     this.userProfile = null;
     // navigate to the home route
     history.replace("/home");

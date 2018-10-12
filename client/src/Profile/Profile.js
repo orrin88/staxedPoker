@@ -18,11 +18,14 @@ class Profile extends Component {
   }
 
   // test if Auth methods work below.
-  componentWillMount() {
-    const { checkGrav, fetchUsers, matchUsernameForId } = this.props.auth
-    const usersObject = null;
-    fetchUsers();
-    console.log('checking for usersObject', usersObject)
+  componentDidMount() {
+    const { checkGrav, fetchUsers, fetchUser, matchUsernameForId } = this.props.auth
+    // const usersObject = null;
+    // fetchUsers();
+    // console.log('checking for usersObject', usersObject)
+    fetchUser(localStorage.getItem('user_id')).then((userdata) => {
+      this.setState({user:userdata});
+    });
   } 
 
   render() {
@@ -50,13 +53,22 @@ class Profile extends Component {
           <div className="details">
             <ListGroup>
               {/* <div className="userdatalist"> */}
-              <div className="username">
-                {/* Can fix the default profile picture sizing issue
-                      by resizing the src/images/user-solid.png manually  */}
-                <i className="far fa-user-circle"> {username}</i>
-              </div>
               {/* Changed profile.nickname to profile.name */}
               <div className="userdatalist">
+                <div className="username">
+                  {/* Can fix the default profile picture sizing issue
+                        by resizing the src/images/user-solid.png manually  */}
+                  <i className="far fa-user-circle"> {user.username}</i>
+                </div>
+                <div className="email">
+                  <i className="far fa-envelope"> {user.email}</i>
+                </div>
+                <div className="phone">
+                  <i className="fas fa-phone"> {user.phone}</i>
+                </div>
+                <div className="name">
+                  <i className="far fa-user"> {user.given_name + " " + user.family_name}</i>
+                </div>
                 <div className="userbalance">
                   <i className="far fa-clock"> Balance: {user.balanceHours}</i>
                 </div>

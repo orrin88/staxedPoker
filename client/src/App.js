@@ -22,7 +22,6 @@ class App extends Component {
     const {userProfile, getProfile, isAuthenticated, checkGrav, matchUsernameForId, fetchUser, fetchUsers } = this.props.auth;
     const defaultPicture = logo;
     console.log('App Auth: ', this.props.auth)
-
   } 
 
   goTo(route) {

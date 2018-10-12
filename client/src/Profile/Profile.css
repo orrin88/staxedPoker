@@ -593,7 +593,7 @@ button {
 }
 
 .details {
-  height: 34%;
+  height: 42%;
   width: 100%;
   background: #fff;
   position: absolute;
@@ -609,6 +609,7 @@ button {
   flex-direction: column;
   align-self: stretch;
   justify-content: space-evenly;
+  border-top: 1px solid #ccc;
 }
 
 .userdatalist {
@@ -616,36 +617,22 @@ button {
   flex-direction: column;
   align-self: stretch;
   justify-content: space-evenly;
-  margin: auto;
+  margin: 20px auto auto;
 }
 
-.username {
-  width: 100%;
-  margin: auto;
-  position: fixed;
-  font-size: 15.4px;
-  font-weight: bold;
-  bottom: 120px;
-  padding: 7.2px;
-  border: 2px;
-  letter-spacing: -0.2px;
-  background-color: #fff;
-  /* background-color: #1b1c1d; */
-  /* background: -webkit-linear-gradient(#ffeeee, #ddefbb); */
-  box-shadow: 0 0.3px 0.6px rgba(0, 0, 0.3, 0.3);
-  /* color: #fff4ed; */
-  user-select: none;
+.userdatalist div{
+  margin-bottom: 10px;
 }
 
-.userbalance {
+/* .userbalance {
   width: 100%;
   margin: auto;
   position: fixed;
   font-size: 14.3px;
-  /* font-weight: bold; */
+  font-weight: bold;
   top: 80.2%;
   right: 20px;
-  /* color: #fff4ed; */
+  color: #fff4ed;
   user-select: none;
 }
 
@@ -653,12 +640,12 @@ button {
   width: 100%;
   position: fixed;
   font-size: 14.3px;
-  /* font-weight: bold; */
+  font-weight: bold;
   top: 89.8%;
   right: 20px;
-  /* color: #fff4ed; */
+  color: #fff4ed;
   user-select: none;
-}
+} */
 
 /* .profile-list-group {
   align-items: left;

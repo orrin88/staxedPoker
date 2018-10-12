@@ -14,5 +14,4 @@ router.use('/private', privateRoute);
 router.use('/admin', adminRoute);
 router.use('/control', controlRoute);
 // router.use('/messages', messagesRoute);
-
 module.exports = router;
