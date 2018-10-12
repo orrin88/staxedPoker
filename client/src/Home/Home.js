@@ -57,7 +57,7 @@ class Home extends Component {
     const { isOpen } = this.state;
 
     return (
-      <Container id="container" className="background-container" pose={isOpen ? 'open' : 'closed'} position={this.props.location.state === undefined? '100%': this.props.location.state}>
+      <Container id="container" className="background-container" pose={isOpen ? 'open' : 'closed'} position={this.props.location.state === undefined? '100%': this.props.location.state.position}>
         <ButtonContainer id="content-container" pose={isOpen ? 'open' : 'closed'}>
           <Button className="button-top">
             <button type="button" className="block">
