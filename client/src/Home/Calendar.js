@@ -34,7 +34,7 @@ class Calendar extends Component {
     const { isOpen } = this.state;
     return (
       <div id="container">
-        <ButtonContainer id="content-container" pose={isOpen ? 'open' : 'closed'}>
+        <ButtonContainer id="content-container" className="background-container" pose={isOpen ? 'open' : 'closed'}>
           <Link to="/home"><Button className="button-top">
             <button type="button" className="block">
               Home
