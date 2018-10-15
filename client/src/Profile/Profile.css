@@ -234,6 +234,12 @@ header .navbar-inverse .navbar-nav > li > a{
   right: 0;
 }
 
+.pokernews-container{
+  bottom: 0;
+  position: absolute;
+  text-align: center;
+}
+
 /* 
 .container .text-center {
   position: absolute;

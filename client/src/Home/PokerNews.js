@@ -44,9 +44,9 @@ class PokerNews extends Component {
     return (
       <Container id="pokernews-container" className="background-container" pose={isOpen ? 'open' : 'closed'}>
         <ButtonContainer id="content-container" pose={isOpen ? 'open' : 'closed'}>
-          <Button className="events-container">
+          <Button className="pokernews-container">
             <h3 className="title">Poker News</h3>
-            <iframe src="http://www.cardplayer.com/news_widget/index.html" width="300" height="300" frameborder="0" marginheight="0" marginwidth="0" scrolling="no"></iframe>
+            <iframe src="https://www.pokernews.com/twitter/" width="300" height="500" frameborder="0" marginheight="0" marginwidth="0" ></iframe>
           </Button>
         </ButtonContainer>
       </Container>
