@@ -66,7 +66,7 @@ header .navbar-inverse .navbar-nav > li > a{
   top: 0;
 }
 
-#calendar-container, #contact-container, #clubinfo-container, #events-container{
+#calendar-container, #contact-container, #clubinfo-container, #events-container, #pokernews-container{
   background-image: url(../images/keenan.jpg);
   background-size: cover;
 }
@@ -234,10 +234,19 @@ header .navbar-inverse .navbar-nav > li > a{
   right: 0;
 }
 
-.pokernews-container{
+.pokernews-content{
   bottom: 0;
   position: absolute;
   text-align: center;
+}
+
+#pokernews-container .right_arrow{
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translate(0, -50%);
+  font-size: 70px;
+  color: #555;
 }
 
 /* 

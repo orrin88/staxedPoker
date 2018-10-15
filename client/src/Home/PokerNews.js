@@ -44,11 +44,14 @@ class PokerNews extends Component {
     return (
       <Container id="pokernews-container" className="background-container" pose={isOpen ? 'open' : 'closed'}>
         <ButtonContainer id="content-container" pose={isOpen ? 'open' : 'closed'}>
-          <Button className="pokernews-container">
+          <Button className="pokernews-content">
             <h3 className="title">Poker News</h3>
             <iframe src="https://www.pokernews.com/twitter/" width="300" height="500" frameborder="0" marginheight="0" marginwidth="0" ></iframe>
           </Button>
         </ButtonContainer>
+        <Link to={{ pathname: '/home', state: { position: '0%'} }}>
+          <i className="fas fa-angle-right right_arrow"></i>
+        </Link>
       </Container>
     );
   }
