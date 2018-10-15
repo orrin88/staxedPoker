@@ -34,12 +34,12 @@ class Calendar extends Component {
     const { isOpen } = this.state;
     return (
       <div id="container">
-        <ButtonContainer id="content-container" className="background-container" pose={isOpen ? 'open' : 'closed'}>
-          <Link to="/home"><Button className="button-top">
+        <Link to="/home"><Button className="button-top">
             <button type="button" className="block">
               Home
             </button>
-          </Button></Link>
+        </Button></Link>
+        <ButtonContainer id="calendar-container" className="background-container" pose={isOpen ? 'open' : 'closed'}>
 
           <Button className="calendar-container">
             <h3 className="title">Club Calendar</h3>

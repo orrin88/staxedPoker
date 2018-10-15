@@ -4,23 +4,24 @@ import contentImg from '../images/clubInfo.png';
 import ReactDom from "react-dom";
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 import posed from 'react-pose';
+import ClubInfoSlider from './ClubInfoSlider';
 
 const Container = posed.div({
   open: {
-    backgroundPosition: '0% center',
+    backgroundPosition: 'center 50%',
     delayChildren: 500,
     staggerChildren: 0
   },
-  closed: { backgroundPosition: '50% center', delay: 0 }
+  closed: { backgroundPosition: 'center 100%', delay: 0 }
 });
 
 const ButtonContainer = posed.div({
   open: {
-    x: '0%',
+    y: '0%',
     delayChildren: 200,
     staggerChildren: 50
   },
-  closed: { x: '-100%', delay: 300 }
+  closed: { y: '-100%', delay: 300 }
 });
 
 const Button = posed.div({
@@ -40,19 +41,16 @@ class ClubInfo extends Component {
   render() {
     const { isOpen } = this.state;
     return (
-      <Container id="clubinfo-container" className="background-container" pose={isOpen ? 'open' : 'closed'}>
-        <ButtonContainer id="content-container" pose={isOpen ? 'open' : 'closed'}>
-          <Link to={{ pathname: '/home', state: { position: '0%'} }}><Button className="button-top">
-            <button type="button" className="block">
-              Home
-            </button>
-          </Button></Link>
-
-          <Button className="info-container">
-            <img src={contentImg} />
-          </Button>
-        </ButtonContainer>
-      </Container>
+      <div className = "whole-container">
+        <Container id="clubinfo-container" className="background-container" pose={isOpen ? 'open' : 'closed'}>
+          <ButtonContainer id="content-container" pose={isOpen ? 'open' : 'closed'}>
+            <ClubInfoSlider />
+            <Link to={{ pathname: '/home', state: { position: '0%'} }}>
+              <i className="fas fa-angle-down down_arrow"></i>
+            </Link>
+          </ButtonContainer>
+        </Container>
+      </div>
     );
   }
 }

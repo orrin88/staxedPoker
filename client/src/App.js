@@ -55,12 +55,14 @@ class App extends Component {
 
             <Navbar.Collapse>
               <Nav className="navbar-collapse" pullRight>
+              {isAuthenticated() === true && (
                 <NavItem
                   className="btn-margin"
                   onClick={this.goTo.bind(this, "home")}
                 >
                   Home 
                 </NavItem>
+              )}
 
                 {/* Pass props down to Profile HERE */}
                 {/* {isAuthenticated() && (
@@ -124,7 +126,8 @@ class App extends Component {
             </Navbar.Collapse>
           </Navbar>
         </div>
-
+        
+        <div className="background-container home"></div>
         {/* <div className="footer">
           <div className="footer-content">
             2018 ©

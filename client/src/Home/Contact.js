@@ -4,14 +4,16 @@ import "../Profile/Profile.css";
 import ReactDom from "react-dom";
 import { BrowserRouter, Route, Link, Switch } from "react-router-dom";
 import posed from 'react-pose';
+import twitter_img from "../images/twitter.png";
+import facebook_img from "../images/facebook.png";
 
 const Container = posed.div({
   open: {
-    backgroundPosition: '100% center',
+    backgroundPosition: '50% center',
     delayChildren: 200,
     staggerChildren: 50
   },
-  closed: { backgroundPosition: '50% center', delay: 300 }
+  closed: { backgroundPosition: '0% center', delay: 300 }
 });
 
 const ButtonContainer = posed.div({
@@ -40,25 +42,24 @@ class Contact extends Component {
   render() {
     const { isOpen } = this.state;
     return (
-      <Container id="contact-container" className="background-container" pose={isOpen ? 'open' : 'closed'}>
-        <ButtonContainer id="content-container" pose={isOpen ? 'open' : 'closed'}>
-          <Link to={{ pathname: '/home', state: { position: '100%'} }}><Button className="button-top">
-            <button type="button" className="block">
-              Home
-            </button>
-          </Button></Link>
-
-          <Button className="contact-container">
-            <h3 className="title">Contact Us</h3>
-            <form className = "contactform">
-              <input type="text" placeholder="Email Address" />
-              <textarea placeholder="Please leave a Message" />
-              <input type="submit" value="Send Message" />
-              <div className="clear" />
-            </form>
-          </Button>
-        </ButtonContainer>
-      </Container>
+      <div className = "whole-container">
+        <Container id="contact-container" className="background-container" pose={isOpen ? 'open' : 'closed'}>
+          <ButtonContainer id="content-container" pose={isOpen ? 'open' : 'closed'}>
+            <Button className="contact-container">
+              <h3 className="title">Contact Us</h3>
+              <h2>For rates & games</h2>
+              <h4>Call: (210) 233-9355</h4>
+              <h4>Text: (210) 880-3305</h4>
+              <h5>6565 babcock rd #24<br />San antonio, Tx, 78248</h5>
+              <img src={facebook_img} className="social_img" />
+              <img src={twitter_img} className="social_img" />
+              <Link to={{ pathname: '/home', state: { position: '0%'} }}>
+                <i className="fas fa-angle-left left_arrow"></i>
+              </Link>
+            </Button>
+          </ButtonContainer>
+        </Container>
+      </div>
     );
   }
 }

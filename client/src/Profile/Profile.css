@@ -43,8 +43,17 @@ text {
   width: 100%;
 } */
 
+header .navbar-inverse{
+  background: transparent;
+  border: none;
+}
+
+header .navbar-inverse .navbar-nav > li > a{
+  color: #fff;
+}
+
 .background-container {
-  background-image: url(../images/ace-cards-casino-279009.jpg);
+  background-image: url(../images/backgroundtemp.png);
   background-repeat: no-repeat;
   background-position: center center;
   /* background-position: center; */
@@ -54,7 +63,12 @@ text {
   flex-direction: column;
   position: absolute;
   overflow-x: hidden;
-  top: 50px;
+  top: 0;
+}
+
+#calendar-container, #contact-container, #clubinfo-container, #events-container{
+  background-image: url(../images/keenan.jpg);
+  background-size: cover;
 }
 
 #showcase h1 {
@@ -73,6 +87,151 @@ text {
 
 #contact-container{
   background-position: right center;
+  text-transform: uppercase;
+  color: #fff;
+  text-align: center;
+}
+
+#contact-container h3.title{
+  font-size: 30px;
+  margin-bottom: 50px;
+}
+
+#contact-container h3, #contact-container h4, #contact-container h5{
+  font-weight: lighter;
+}
+
+#contact-container h4{
+  line-height: 25px;
+}
+
+#contact-container h5{
+  margin-top: 10px;
+  line-height: 20px;
+  letter-spacing: 2px;
+  margin-bottom: 50px;
+}
+
+#contact-container h2{
+  font-weight: 400;
+  letter-spacing: 1px;
+}
+
+#contact-container h2, #contact-container h4{
+  font-size: 18px;
+  font-family: 'Roboto';
+}
+
+#contact-container .left_arrow{
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  color: #555;
+  font-size: 70px;
+}
+
+#contact-container .social_img{
+  width: 35px;
+  margin-right: 10px;
+}
+
+.whole-container.events .up_arrow{
+  font-size: 70px;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+  color: #555;
+}
+
+#events-container{
+  text-align: center;
+}
+
+#events-container .title{
+  position: absolute;
+  bottom: 510px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  font-family: 'Roboto';
+}
+
+.events_list{
+  width: 320px;
+  background: #fff;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
+.events_list ul{
+  max-height: 500px;
+  overflow: auto;
+  padding: 0 10px;
+}
+.events_list ul li{
+  display: block;
+  height: 125px;
+  display: flex;
+  flex-direction: row;
+}
+
+.events_list ul li .imagepart{
+  width: 45%;
+  padding: 10px;
+  position: relative;
+}
+
+.events_list ul li .imagepart .image{
+  width: 100%;
+  height: 100px;
+  background: #ccc;
+}
+
+.events_list ul li .imagepart .button{
+  position: absolute;
+  width: 55%;
+  padding: 5px;
+  top: 20px;
+  right: 10px;
+  font-size: 12px;
+  border-radius: 3px;
+  color: #555;
+  background: #fff;
+  text-align: center;
+}
+
+.events_list ul li .contentpart{
+  width: 70%;
+  text-align: left;
+}
+
+.events_list ul li .contentpart h1.eventtitle{
+  font-size: 13px;
+  margin-top: 10px;
+  line-height: 18px;
+  margin-bottom: 0;
+  color: #555;
+}
+
+.events_list ul li .contentpart .moredetails{
+  font-size: 11px;
+  color: #999;
+}
+
+.events_list ul li .contentpart i{
+  position: absolute;
+  bottom: 15px;
+  color: #555;
+}
+
+.events_list ul li .contentpart .upload_icon{
+  right: 20%;
+}
+
+.events_list ul li .contentpart .heart_icon{
+  right: 0;
 }
 
 /* 
@@ -327,9 +486,27 @@ section::before {
   justify-content: center;
 }
 
+#home-container #content-container{
+  height: 50vh;
+  border: 1px solid #fff;
+}
+
 .container-center .logo{
-  margin: -50px auto 10px;
-  width: 400px;
+  margin: auto;
+  width: auto;
+  max-height: 60%;
+}
+
+.open-container{
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.open-container .openimage{
+  max-height: 80%;
+  max-width: 400px;
 }
 
 /* Starts */
@@ -339,15 +516,12 @@ section::before {
   width: 100%;
   margin: 0;
   border: none;
-  background-color: #000;
   padding: 14px 26px;
   cursor: pointer;
   text-align: center;
   justify-content: center;
-  filter: alpha(opacity=60);
-  -moz-opacity: 0.6;
-  opacity: 0.6;
   padding: 46px;
+  background: transparent;
 }
 
 .button-top {
@@ -361,10 +535,12 @@ section::before {
   justify-content: center;
   align-self: center;
   /* margin-top: -4.5vh; */
-  width: 100vw;
+  width: 50vw;
   position: absolute;
   top: 0;
-  left: 0;
+  left: 50%;
+  z-index: 1000;
+  transform: translate(-50%, 0) !important;
 }
 
 .button-bottom {
@@ -380,7 +556,7 @@ section::before {
   /* margin-top: 20vh; */
   width: 100vw;
   position: absolute;
-  bottom: 50px;
+  bottom: 0;
   left: 0;
 }
 
@@ -500,6 +676,7 @@ button {
 .title{
   font-size: 30px;
   margin-bottom: 20px;
+  text-transform: uppercase;
 }
 
 .calendar-container{
@@ -624,6 +801,98 @@ button {
   margin-bottom: 10px;
 }
 
+.slickslider{
+  max-width: 400px;
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+  position: relative;
+}
+
+.slickslider h2{
+  text-align: center;
+}
+
+.slickslider .slick-arrow{
+  display: none !important;
+}
+
+.slickslider .slick-dots li{
+  margin: 0;
+}
+
+.slickslider .slick-dots li.slick-active button:before{
+  opacity: 1;
+  color: #fff;
+}
+
+.slickslider .slick-dots li button:before{
+  font-size: 12px;
+  color: rgba(255,255,255,0.5);
+}
+
+.slickslider .slide{
+  position: relative;
+  text-align: center;
+  padding-bottom: 20px;
+  outline: none;
+}
+
+.slickslider .slide .openimg{
+  width: 30%;
+  position: absolute;
+  top: 0;
+}
+
+.slickslider .logo{
+  width: 80%;
+  margin: auto;
+}
+
+.slickslider .slide h3, .slickslider .slide h4{
+  text-transform: uppercase;
+  font-weight: lighter;
+  margin-bottom: 5px;
+}
+
+.slickslider .slide h3{
+  margin-top: 20px;
+  font-size: 21px;
+}
+
+.slickslider .slide h4{
+  font-size: 18px;
+}
+
+.slickslider .slide .title{
+  margin-bottom: 30px;
+}
+
+.slickslider .slide .titlepart{
+  margin-bottom: 50px;
+}
+
+.slickslider .slide .titlepart h3{
+  color: pink;
+}
+
+.slickslider .slide .titlepart h4{
+  color: skyblue;
+}
+
+.slickslider .slide p{
+  font-size: 12px;
+  font-weight: lighter;
+}
+
+.down_arrow{
+  font-size: 70px;
+  position: absolute;
+  bottom: 0;
+  color: rgba(255,255,255,0.5);
+  left: 50%;
+  transform: translate(-50%, 0);
+}
+
 /* .userbalance {
   width: 100%;
   margin: auto;
@@ -702,8 +971,25 @@ button {
 
 /* Media queries */
 @media only screen and (max-width: 767px) {
+  header img{
+    margin-left: 5px;
+  }
+
   .block{
     padding: 10px;
     font-size: 20px;
+  }
+
+  .openimage{
+    width: 80%;
+    border: 1px solid #ccc;
+  }
+
+  .slickslider{
+    width: 80%;
+  }
+
+  .events_list{
+    width: 80%;
   }
 }

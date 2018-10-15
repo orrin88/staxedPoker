@@ -8,6 +8,8 @@ import ClubInfo from "./Home/ClubInfo";
 import Calendar from "./Home/Calendar";
 import Contact from "./Home/Contact";
 import Profile from "./Profile/Profile";
+import Events from "./Home/Events";
+import PokerNews from "./Home/PokerNews";
 import Ping from "./Ping/Ping";
 import Admin from "./Admin/Admin";
 import Callback from "./Callback/Callback";
@@ -57,6 +59,20 @@ export const makeMainRoutes = props => {
             path="/clubinfo"
             render={({ location, props }) => (
               <ClubInfo auth={auth} {...props} location={location} />
+            )}
+          />
+
+          <Route
+            path="/pokernews"
+            render={({ location, props }) => (
+              <PokerNews auth={auth} {...props} location={location} />
+            )}
+          />
+
+          <Route
+            path="/events"
+            render={({ location, props }) => (
+              <Events auth={auth} {...props} location={location} />
             )}
           />
 
